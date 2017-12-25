@@ -21,7 +21,6 @@ from keras.models import Sequential
 from keras.layers import Flatten, Dense, Lambda, Activation, Dropout
 from keras.layers.convolutional import Convolution2D
 from keras.layers.pooling import MaxPooling2D
-from keras.utils.layer_utils import print_layer_shapes
 
 model = Sequential()
 model.add(Lambda(lambda x: x/255.0 - 0.5, input_shape = X_train.shape[1:]))
@@ -56,8 +55,6 @@ model.add(Dense(10))
 model.add(Activation('relu'))
 model.add(Dropout(0.5))
 model.add(Dense(1))
-
-print_layer_shapes(model, input_shape = X_train.shape[1:])
 
 model.compile(loss = 'mse', optimizer = 'adam')
 model.fit(X_train, y_train, validation_split = 0.2, shuffle = True, nb_epoch = 3)
