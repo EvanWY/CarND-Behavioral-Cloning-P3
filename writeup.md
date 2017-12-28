@@ -151,6 +151,7 @@ To augment the data sat, I also flipped images and angles thinking that this wou
 ![alt text][mirror2]
 
 Then I repeated this process on track two in order to get more data points.
+
 ![alt text][jungle]
 
 After the collection process, I had 215250 data points. I then preprocessed this data by turn all images into grayscale and cropped the top and bottom area.
