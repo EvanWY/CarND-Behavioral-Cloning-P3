@@ -135,7 +135,7 @@ I then recorded the vehicle recovering from the left side and right sides of the
 ![alt text][recover2]
 ![alt text][recover3]
 
-[comment]: <> (Then I repeated this process on track two in order to get more data points.)
+[comment]: # (Then I repeated this process on track two in order to get more data points.)
 
 To augment the data sat, I also flipped images and angles thinking that this would reduce overfitting. For example, here is an image that has then been flipped:
 
