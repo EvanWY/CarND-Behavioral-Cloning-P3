@@ -76,7 +76,8 @@ model.add(Flatten())
 model.add(Dense(240, activation = 'relu'))
 model.add(Dense(50, activation = 'relu'))
 model.add(Dense(1))
-
+from keras.utils.visualize_util import plot  
+plot(model, to_file='model.png')
 model.summary()
 print('### train sample size == {}, validation sample size == {}'.format(len(train_samples), len(validation_samples)))
 model.compile(loss = 'mse', optimizer = 'adam')
