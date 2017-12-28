@@ -28,6 +28,10 @@ The goals / steps of this project are the following:
 [recover1]: ./examples/recover1.jpg "Normal Image"
 [recover2]: ./examples/recover2.jpg "Normal Image"
 [recover3]: ./examples/recover3.jpg "Normal Image"
+[jungle]: ./examples/jungle.jpg "Normal Image"
+[position1]: ./examples/position1.jpg "Normal Image"
+[position2]: ./examples/position2.jpg "Normal Image"
+[position3]: ./examples/position3.jpg "Normal Image"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -129,20 +133,27 @@ To capture good driving behavior, I first recorded two laps on track one using c
 
 ![alt text][center]
 
+I also used all three cameras, with a angle correction of 0.15:
+
+![alt text][position1]
+![alt text][position2]
+![alt text][position3]
+
 I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to recover when it's running toward the sides of the track. These images show what a recovery looks like starting from left side :
 
 ![alt text][recover1]
 ![alt text][recover2]
 ![alt text][recover3]
 
-[comment]: # (Then I repeated this process on track two in order to get more data points.)
-
 To augment the data sat, I also flipped images and angles thinking that this would reduce overfitting. For example, here is an image that has then been flipped:
 
 ![alt text][mirror1]
 ![alt text][mirror2]
 
-After the collection process, I had 153990 data points. I then preprocessed this data by turn all images into grayscale and cropped the top and bottom area.
+Then I repeated this process on track two in order to get more data points.
+![alt text][jungle]
+
+After the collection process, I had 215250 data points. I then preprocessed this data by turn all images into grayscale and cropped the top and bottom area.
 
 ![alt text][gray1]
 ![alt text][gray2]
