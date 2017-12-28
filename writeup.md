@@ -18,7 +18,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./model.png "Model Visualization"
+[image1]: ./examples/model.png "Model Visualization"
 [image2]: ./examples/placeholder.png "Grayscaling"
 [image3]: ./examples/placeholder_small.png "Recovery Image"
 [image4]: ./examples/placeholder_small.png "Recovery Image"
@@ -116,7 +116,7 @@ The final model architecture (model.py lines 65 - 78) consisted of a convolution
 | Fully Connected + ReLU            | (None, 50)            | 12050       
 | Fully Connected                   | (None, 1)             | 51          
 
-Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
+Here is a visualization of the architecture
 
 ![alt text][image1]
 
