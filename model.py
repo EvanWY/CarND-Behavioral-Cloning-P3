@@ -63,7 +63,7 @@ train_generator = generator(train_samples, batch_size=36)
 validation_generator = generator(validation_samples, batch_size=36)
 
 model = Sequential()
-model.add(Cropping2D(cropping=((50,20), (0,0)), input_shape = (160,320,1)))
+model.add(Cropping2D(cropping=((0,20), (0,0)), input_shape = (160,320,1)))
 model.add(Lambda(lambda x: x/255.0 - 0.5))
 model.add(Convolution2D(36, 5, 5, subsample = (3,3), activation = 'relu'))
 model.add(Convolution2D(48, 5, 5, subsample = (2,2), activation = 'relu'))
@@ -76,8 +76,7 @@ model.add(Flatten())
 model.add(Dense(240, activation = 'relu'))
 model.add(Dense(50, activation = 'relu'))
 model.add(Dense(1))
-from keras.utils.visualize_util import plot  
-plot(model, to_file='model.png')
+
 model.summary()
 print('### train sample size == {}, validation sample size == {}'.format(len(train_samples), len(validation_samples)))
 model.compile(loss = 'mse', optimizer = 'adam')
@@ -86,7 +85,7 @@ model.fit_generator(
     samples_per_epoch = len(train_samples) * 6, 
     validation_data = validation_generator, 
     nb_val_samples = len(validation_samples) * 6, 
-    nb_epoch = 4)
+    nb_epoch = 12)
 
 model.save('model.h5')
 exit()
