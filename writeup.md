@@ -19,12 +19,15 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./examples/model.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[center]: ./examples/center.jpg "Grayscaling"
+[gray1]: ./examples/gray1.jpg "Recovery Image"
+[gray2]: ./examples/gray2.jpg "Recovery Image"
+[crop]: ./examples/crop.jpg "Recovery Image"
+[mirror1]: ./examples/mirror1.jpg "Recovery Image"
+[mirror2]: ./examples/mirror2.jpg "Normal Image"
+[recover1]: ./examples/recover1.jpg "Normal Image"
+[recover2]: ./examples/recover2.jpg "Normal Image"
+[recover3]: ./examples/recover3.jpg "Normal Image"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -124,26 +127,27 @@ Here is a visualization of the architecture
 
 To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
 
-![alt text][image2]
+![alt text][center]
 
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
+I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to recover when it's running toward the sides of the track. These images show what a recovery looks like starting from left side :
 
-![alt text][image3]
-![alt text][image4]
-![alt text][image5]
+![alt text][recover1]
+![alt text][recover2]
+![alt text][recover3]
 
 Then I repeated this process on track two in order to get more data points.
 
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
+To augment the data sat, I also flipped images and angles thinking that this would reduce overfitting. For example, here is an image that has then been flipped:
 
-![alt text][image6]
-![alt text][image7]
+![alt text][mirror1]
+![alt text][mirror2]
 
-Etc ....
+After the collection process, I had 153990 data points. I then preprocessed this data by turn all images into grayscale and cropped the top and bottom area.
 
-After the collection process, I had X number of data points. I then preprocessed this data by ...
+![alt text][gray1]
+![alt text][gray2]
+![alt text][crop]
 
+I finally randomly shuffled the data set and put 10% of the data into a validation set.
 
-I finally randomly shuffled the data set and put Y% of the data into a validation set. 
-
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 7 as evidenced by training mean square error and validation mean square error both stop decreasing. I used an adam optimizer so that manually training the learning rate wasn't necessary.
