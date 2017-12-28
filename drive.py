@@ -59,8 +59,8 @@ def telemetry(sid, data):
         speed = data["speed"]
         # The current image from the center camera of the car
         imgString = data["image"]
-        image = Image.open(BytesIO(base64.b64decode(imgString)))
-        image = image.convert('L')
+        color_image = Image.open(BytesIO(base64.b64decode(imgString)))
+        image = color_image.convert('L')
         image_array = np.asarray(image).reshape(160,320,1)
         steering_angle = float(model.predict(image_array[None, :, :, :], batch_size=1))
 
@@ -73,7 +73,7 @@ def telemetry(sid, data):
         if args.image_folder != '':
             timestamp = datetime.utcnow().strftime('%Y_%m_%d_%H_%M_%S_%f')[:-3]
             image_filename = os.path.join(args.image_folder, timestamp)
-            image.save('{}.jpg'.format(image_filename))
+            color_image.save('{}.jpg'.format(image_filename))
     else:
         # NOTE: DON'T EDIT THIS.
         sio.emit('manual', data={}, skip_sid=True)
