@@ -58,6 +58,22 @@ My model consists of a convolution neural network with 3x3 filter sizes and dept
 
 The model includes RELU layers to introduce nonlinearity (code line 20), and the data is normalized in the model using a Keras lambda layer (code line 18). 
 
+| Layer (type)                      | Output Shape          | Param #     
+| --------------------------------- | --------------------- | -----------: 
+| Cropping                          | (None, 90, 320, 1)    | 0           
+| Normalization                     | (None, 90, 320, 1)    | 0           
+| Convolution (5x5 stride 3) + ReLU | (None, 29, 106, 36)   | 936         
+| Convolution (5x5 stride 2) + ReLU | (None, 13, 51, 48)    | 43248       
+| Dropout                           | (None, 13, 51, 48)    | 0           
+| Convolution (5x5 stride 2) + ReLU | (None, 5, 24, 64)     | 76864       
+| Convolution (3x3 stride 1) + ReLU | (None, 3, 22, 96)     | 55392       
+| Dropout                           | (None, 3, 22, 96)     | 0           
+| Convolution (3x3 stride 1) + ReLU | (None, 1, 20, 96)     | 83040       
+| Flatten                           | (None, 1920)          | 0           
+| Fully Connected + ReLU            | (None, 240)           | 461040      
+| Fully Connected + ReLU            | (None, 50)            | 12050       
+| Fully Connected                   | (None, 1)             | 51          
+
 #### 2. Attempts to reduce overfitting in the model
 
 The model contains dropout layers in order to reduce overfitting (model.py lines 21). 
